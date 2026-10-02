@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SPNL | Synthetic Polymer Nanomaterials Laboratory, Inha University</title>
+<meta name="description" content="Synthetic Polymer Nanomaterials Laboratory (SPNL), Department of Chemistry, Inha University. Precision synthesis to control intra- and interchain interactions in polymers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=Noto+Serif+KR:wght@300;400;600&family=Newsreader:ital@1&display=swap" rel="stylesheet">
+<style>
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--hi);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:8px 14px;z-index:100}
+.skip:focus{left:8px}
+header.top{position:sticky;top:0;z-index:50;background:var(--bar);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.nav{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px}
+.nav nav{min-width:0}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink);white-space:nowrap}
+.brand b{font-family:var(--serif);font-weight:500;font-size:24px;letter-spacing:.02em}
+.brand span{font-size:13px;color:var(--muted)}
+.nav ul{list-style:none;display:flex;gap:4px;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav ul a{display:block;padding:6px 12px;font-size:15px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.nav ul a.on{color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent)}
+.hero{border-bottom:1px solid var(--line)}
+.hero h1{font-family:var(--serif);font-weight:400;line-height:1.08;margin:0 0 20px;letter-spacing:-.01em}
+.hero .affil{font-size:15px;color:var(--muted);margin:0 0 28px}
+.hero .mission{font-family:var(--serif);font-style:italic;line-height:1.45;margin:0;max-width:30ch}
+.chains{width:100%;height:auto;overflow:visible}
+.chains .bb{fill:none;stroke:var(--bb);stroke-width:2;stroke-linecap:round}
+.chains .link{stroke:var(--hi);stroke-width:1.2;stroke-dasharray:2 4;opacity:.6}
+.chains .bead{fill:var(--paper);stroke:var(--accent);stroke-width:1.6}
+.chains .bead.f{fill:var(--hi);stroke:var(--hi)}
+.chains .glow{fill:var(--hi);opacity:.32}
+.chains .lbl{font-family:var(--sans);font-size:12px;fill:var(--muted)}
+section.block{padding:88px 0}
+.sec-head h2{font-family:var(--serif);font-weight:400;line-height:1.1;margin:0}
+.lead{font-size:18px;margin:0 0 28px;max-width:58ch}
+.kw-title{font-size:14px;color:var(--muted);margin:0 0 8px}
+.kw{list-style:none;padding:0;margin:0}
+figure{margin:0}
+figure img{width:100%}
+figcaption{font-size:13px;color:var(--muted);margin-top:10px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.gt{font-size:18px;font-weight:600;margin:0 0 18px}
+.pi{display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;margin-bottom:56px}
+.pi-photo img{width:220px;aspect-ratio:4/5;object-fit:cover}
+.pi-name{font-family:var(--serif);font-size:32px;line-height:1.2;margin:0}
+.pi-name span{font-family:var(--sans);font-size:17px;color:var(--muted);margin-left:8px}
+.role{margin:4px 0 18px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:2px 18px;margin:0 0 20px;font-size:15px}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0}
+.cvbtn{display:inline-block;margin-bottom:32px;padding:8px 18px;font-size:15px;text-decoration:none;border:1px solid var(--accent);color:var(--accent)}
+.cvbtn:hover{background:var(--accent);color:var(--paper)}
+.cv{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.cv h4{font-size:15px;font-weight:600;margin:0 0 12px}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:140px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.5}
+.tl .when{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:2px}
+.tl b{font-weight:600}
+.tl .sub{display:block;color:var(--muted);font-size:14px}
+.roster{width:100%;border-collapse:collapse;margin-bottom:48px;font-size:15px}
+.roster th{text-align:left;font-weight:500;font-size:13px;color:var(--muted);padding:0 12px 8px 0;border-bottom:1px solid var(--ink)}
+.roster td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:baseline}
+.roster .nm b{font-weight:600}
+.roster .nm span{color:var(--muted);margin-left:6px}
+.roster td a{color:var(--muted);overflow-wrap:anywhere}
+.hint{font-size:13px;color:var(--muted);margin:-10px 0 12px}
+.who{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:left;display:inline-flex;align-items:baseline;gap:6px}
+.who b{font-weight:600}
+.who span{color:var(--muted)}
+.who i{font-style:normal;color:var(--accent);font-size:15px;width:14px;display:inline-block;transition:transform .2s}
+.who[aria-expanded="true"] i{transform:rotate(45deg)}
+.who:hover b{color:var(--accent)}
+.roster tr.ph td{padding:4px 0 20px;border-bottom:1px solid var(--line)}
+.roster tr.ph img{max-height:340px;width:auto;max-width:100%}
+.roster tr.ph img.pt{width:200px;height:250px;max-height:none;object-fit:cover}
+@media (prefers-reduced-motion:reduce){.who i{transition:none}}
+.alumni{display:grid;gap:0;border-top:1px solid var(--ink)}
+.alum{padding:16px 0;border-bottom:1px solid var(--line)}
+.al-h{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline}
+.al-d{margin-top:8px !important}
+.al-deg{font-size:14px;color:var(--muted)}
+.al-d{display:grid;grid-template-columns:80px 1fr;gap:2px 12px;margin:0;font-size:15px}
+.al-d[hidden]{display:none}
+.al-d dt{color:var(--muted)}
+.al-d dd{margin:0}
+.al-ph{margin-top:12px}
+.al-ph img{max-height:340px;width:auto;max-width:100%}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:28px 20px}
+.gallery figure button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 40%;transition:opacity .15s}
+.gallery button:hover img{opacity:.85}
+.gallery figcaption{font-size:14px;color:var(--ink);margin-top:10px;line-height:1.5}
+.gallery figcaption time{display:block;font-size:13px;color:var(--accent);font-variant-numeric:tabular-nums}
+@media (max-width:640px){.gallery{grid-template-columns:1fr 1fr;gap:18px 12px}.gallery figcaption{font-size:13px}.al-d{grid-template-columns:64px 1fr;font-size:14px}}
+.gt-sub{font-weight:400;color:var(--muted);font-size:15px}
+.gt .who{font-size:inherit}
+.gt .who span{font-weight:400;font-size:15px}
+#prior[hidden]{display:none}
+#prior{margin-top:8px}
+.note{font-size:13px;color:var(--muted);margin:0 0 28px}
+.gt.before{margin-top:64px}
+.year{display:grid;grid-template-columns:110px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--line)}
+.year h4{font-family:var(--serif);font-weight:400;font-size:30px;margin:0;line-height:1;color:var(--accent)}
+.plist{list-style:none;margin:0;padding:0}
+.pub{display:grid;grid-template-columns:44px 1fr;gap:12px;margin-bottom:20px}
+.pub:last-child{margin-bottom:0}
+.pub .no{font-size:13px;color:var(--muted);padding-top:3px;font-variant-numeric:tabular-nums}
+.pub p{margin:0}
+.pub .t{font-weight:500;font-size:17px;line-height:1.45;margin-bottom:4px}
+.pub .t a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.pub .t a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+.pub .au{font-size:15px;color:var(--muted)}
+.pub .au sup{font-size:.72em;line-height:0;margin-left:1px}
+.pub .au b{color:var(--ink);font-weight:600}
+.pub .j{font-size:15px}
+.pub .j i{font-family:var(--serif);font-size:16px}
+.pub .pn{font-size:13px;color:var(--accent);margin-top:2px}
+.news{list-style:none;margin:0;padding:0}
+.news>li{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--line)}
+.news>li:first-child{border-top:0;padding-top:0}
+.news time{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:2px}
+.news p{margin:0;max-width:68ch}
+.news p b{font-weight:600}
+.news p i{font-family:var(--serif)}
+.shot-toggle{font:inherit;font-size:14px;color:var(--accent);background:none;border:0;padding:0;margin-top:10px;cursor:pointer;display:inline-flex;align-items:baseline;gap:6px}
+.shot-toggle i{font-style:normal;display:inline-block;width:12px;transition:transform .2s}
+.shot-toggle[aria-expanded="true"] i{transform:rotate(45deg)}
+.shot-toggle:hover{text-decoration:underline}
+.shots[hidden]{display:none}
+.shots{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.shots button{padding:0;border:0;background:none;cursor:zoom-in}
+.shots img{height:140px;width:auto;object-fit:cover}
+.shots button:hover img{opacity:.85}
+.news li.older{display:none}
+.news.open li.older{display:grid}
+.more{margin-top:28px;font:inherit;font-size:15px;background:transparent;color:var(--accent);border:1px solid var(--accent);padding:8px 18px;cursor:pointer}
+.more:hover{background:var(--accent);color:var(--paper)}
+.contact{display:grid;grid-template-columns:1.1fr 1fr;gap:56px}
+.contact .facts{grid-template-columns:110px 1fr;gap:12px 20px;font-size:16px}
+.addr{font-family:var(--serif);font-size:22px;line-height:1.45;margin:0 0 8px}
+.addr-ko{color:var(--muted);margin:0}
+footer{border-top:1px solid var(--line);padding:28px 0 calc(28px + env(safe-area-inset-bottom,0px));font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--muted)}
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(92vw,1100px);max-height:92vh}
+dialog.lb::backdrop{background:rgba(36,26,20,.9)}
+dialog.lb img{max-width:min(92vw,1100px);max-height:86vh;margin:0 auto}
+dialog.lb button{position:fixed;top:16px;right:20px;font:inherit;font-size:15px;background:#fff;color:#2B1E16;border:0;padding:6px 14px;cursor:pointer}
+@media (max-width:900px){
+  .about,.contact,.cv{grid-template-columns:1fr;gap:36px}
+  .pi{grid-template-columns:1fr;gap:24px}
+  .pi-photo img{width:180px}
+}
+@media (max-width:640px){
+  .wrap,.nav{padding-left:18px;padding-right:18px}
+  .brand span{display:none}
+  .nav{gap:10px}
+  .nav ul a{padding:6px 8px;font-size:14px}
+  section.block{padding:60px 0}
+  .year,.news>li{grid-template-columns:1fr;gap:10px}
+  .tl li{grid-template-columns:1fr;gap:2px}
+  .shots img{height:110px}
+  .roster thead{display:none}
+  .roster,.roster tbody,.roster tr,.roster td{display:block}
+  .roster tr{padding:12px 0;border-bottom:1px solid var(--line)}
+  .roster td{border:0;padding:1px 0;font-size:14px}
+  .roster td.nm{font-size:16px;padding-bottom:4px}
+  .roster td:empty{display:none}
+  .roster tr.ph[hidden]{display:none}
+  .roster tr.ph td::before{content:none}
+  .roster tr.ph img{max-height:300px}
+  .roster td[data-l]::before{content:attr(data-l) "  ";color:var(--muted);display:inline-block;width:84px}
+  .contact .facts{grid-template-columns:80px 1fr}
+}
+
+
+:root{--ink:#ECEFF4;--accent:#F2A15F;--hi:#F2A15F;--muted:#A3AEBD;--line:#38424F;--wash:#222A36;--paper:#1A212C;--bar:rgba(26,33,44,.96);--bb:#5D6878;
+ --sky:#5D6878;--serif:"Noto Serif KR","Newsreader",Georgia,serif;--sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif}
+section.block.alt{background:var(--wash)}
+.hero.dusk{position:relative;min-height:min(88vh,760px);display:flex;align-items:flex-end;border:0;overflow:hidden;background:#3E4756}
+.hero.dusk .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.hero.dusk::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(14,18,25,.9) 0%,rgba(14,18,25,.55) 34%,rgba(14,18,25,0) 62%)}
+.hero.dusk .wrap{position:relative;z-index:1;width:100%;padding-top:160px;padding-bottom:56px}
+.hero.dusk h1{font-size:clamp(34px,4.6vw,58px);font-weight:300;max-width:18ch;color:#F3F5F8}
+.hero.dusk .affil{color:#C9D1DC}
+.hero.dusk .mission{font-size:clamp(18px,2vw,22px);color:var(--accent);max-width:44ch}
+#about{background:var(--sky)}
+#about,#about .lead{color:#F4F6F9}
+#about .kw-title,#about figcaption{color:#DCE2EA}
+#about .kw li{border-color:rgba(255,255,255,.45);color:#fff}
+#about .sec-head h2{color:#fff}
+.sec-head{margin-bottom:40px}
+.sec-head h2{font-size:clamp(28px,3.2vw,38px);font-weight:300}
+.kw{display:flex;flex-wrap:wrap;gap:8px}
+.kw li{border:1px solid var(--line);padding:6px 14px;font-size:14px}
+.about figure img{aspect-ratio:3/2;object-fit:cover;object-position:50% 72%}
+.roster th{border-bottom-color:var(--muted)}
+.cvbtn{background:var(--accent);color:var(--paper);font-weight:600;border-color:var(--accent)}
+.cvbtn:hover{background:transparent;color:var(--accent)}
+.pub .t a{color:var(--ink)}
+dialog.lb button{background:var(--accent)}
+dialog.lb::backdrop{background:rgba(14,18,25,.92)}
+@media (min-width:1101px){
+ header.top{position:fixed;left:0;top:0;bottom:0;width:220px;border-bottom:0;border-right:1px solid var(--line);backdrop-filter:none}
+ .nav{flex-direction:column;align-items:flex-start;justify-content:flex-start;height:auto;padding:40px 28px;gap:40px}
+ .brand{flex-direction:column;gap:4px}
+ .brand b{font-size:30px}
+ .nav ul{flex-direction:column;gap:2px;overflow:visible}
+ .nav ul a{padding:6px 0;font-size:16px;color:var(--muted)}
+ .nav ul a:hover{color:var(--ink)}
+ .nav ul a.on{box-shadow:none;color:var(--accent)}
+ .nav ul a.on::before{content:"";display:inline-block;width:14px;height:1px;background:var(--accent);vertical-align:middle;margin-right:8px}
+ main,footer{margin-left:220px}
+ html{scroll-padding-top:24px}
+}
+@media (max-width:700px){.hero.dusk{min-height:78vh}.hero.dusk .bg{object-position:48% 50%}}
+
+</style>
+</head>
+<body class="t-d">
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="top">
+  <div class="nav">
+    <a class="brand" href="#home"><b>SPNL</b><span>Inha University</span></a>
+    <nav aria-label="Main"><ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#members">Members</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+<main id="main">
+<section class="hero dusk" id="home">
+  <img class="bg" src="images/hero-dusk.jpg" alt="">
+  <div class="wrap"><div class="htxt"><h1>Synthetic Polymer Nanomaterials Laboratory</h1>
+      <p class="affil">Department of Chemistry, Inha University</p>
+      <p class="mission">Precision synthesis to control intra- and interchain interactions in polymers.</p></div></div>
+</section>
+
+<section class="block" id="about"><div class="wrap">
+  <div class="sec-head"><h2>About</h2></div>
+  <div class="sec-body about">
+    <div>
+      <p class="lead">We design and synthesize polymers with precisely defined structures, and study how interactions within and between polymer chains govern their self-assembly, crystallization, and optical properties.</p>
+      <p class="kw-title">Research keywords</p>
+      <ul class="kw"><li>Polymer synthesis</li><li>Polymer self-assembly</li><li>Polymeric nanoparticles</li></ul>
+    </div>
+    <figure><img src="images/news/2026-kcs-jeju-group.jpg" alt="SPNL members" loading="lazy"><figcaption>2026 대한화학회 제137회 총회 및 학술발표회, ICC 제주</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="block alt" id="members"><div class="wrap">
+  <div class="sec-head"><h2>Members</h2></div>
+  <div class="sec-body">
+    <h3 class="gt">Principal Investigator</h3>
+    <div class="pi">
+      <div class="pi-photo"><img src="images/members/sanghee-yang.jpg" alt="Prof. Sanghee Yang"></div>
+      <div>
+        <p class="pi-name">Sanghee Yang <span>양상희</span></p>
+        <p class="role">Assistant Professor, Department of Chemistry, Inha University</p>
+        <dl class="facts">
+          <dt>Office</dt><dd>5N406, 100 Inha-ro</dd>
+          <dt>Lab</dt><dd>5E410D, 100 Inha-ro</dd>
+          <dt>Phone</dt><dd><a href="tel:+82328607682">+82-32-860-7682</a></dd>
+          <dt>Email</dt><dd><a href="mailto:shyang@inha.ac.kr">shyang@inha.ac.kr</a></dd>
+        </dl>
+        <a class="cvbtn" href="files/Sanghee-Yang-CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+        <div class="cv">
+          <div><h4>Professional career</h4><ol class="tl">
+            <li><span class="when">2023.03 – Present</span><div><b>Assistant Professor</b><span class="sub">Department of Chemistry, Inha University, South Korea</span></div></li>
+            <li><span class="when">2021.03 – 2023.02</span><div><b>Postdoctoral Researcher</b><span class="sub">Department of Chemistry, University of Minnesota, USA · Advisor: Prof. Timothy P. Lodge</span></div></li>
+            <li><span class="when">2020.09 – 2021.03</span><div><b>Postdoctoral Fellow</b><span class="sub">Department of Chemistry, Seoul National University, South Korea · Advisor: Prof. Tae-Lim Choi</span></div></li>
+          </ol></div>
+          <div><h4>Education</h4><ol class="tl">
+            <li><span class="when">2014.03 – 2020.08</span><div><b>Ph.D. in Chemistry</b><span class="sub">Seoul National University, South Korea · Advisor: Prof. Tae-Lim Choi</span></div></li>
+            <li><span class="when">2010.03 – 2014.02</span><div><b>B.S. in Chemistry</b><span class="sub">Seoul National University, South Korea</span></div></li>
+          </ol></div>
+        </div>
+      </div>
+    </div>
+    <h3 class="gt">Graduate Students</h3>
+<p class="hint">이름을 누르면 사진이 보입니다.</p>
+<table class="roster"><thead><tr><th>Name</th><th>Position</th><th>Since</th><th>Email</th></tr></thead><tbody><tr><td class="nm"><button type="button" class="who" aria-expanded="false" aria-controls="ph0"><b>황규성</b> <span>Gyusung Hwang</span><i aria-hidden="true">+</i></button></td><td data-l="Position">Integrated M.S.–Ph.D.</td><td data-l="Since">2024.09</td><td data-l="Email"><a href="mailto:g.hwang@inha.edu">g.hwang@inha.edu</a></td></tr><tr class="ph" id="ph0" hidden><td colspan="4"><img class="pt" src="images/members/gyusung-hwang.jpg" alt="황규성 (Gyusung Hwang)" loading="lazy"></td></tr><tr><td class="nm"><button type="button" class="who" aria-expanded="false" aria-controls="ph1"><b>고건우</b> <span>Gunwoo Ko</span><i aria-hidden="true">+</i></button></td><td data-l="Position">M.S. Candidate</td><td data-l="Since">2025.03</td><td data-l="Email"><a href="mailto:kgw13080@inha.edu">kgw13080@inha.edu</a></td></tr><tr class="ph" id="ph1" hidden><td colspan="4"><img class="pt" src="images/members/gunwoo-ko.jpg" alt="고건우 (Gunwoo Ko)" loading="lazy"></td></tr><tr><td class="nm"><button type="button" class="who" aria-expanded="false" aria-controls="ph2"><b>나지환</b> <span>Jihwan Na</span><i aria-hidden="true">+</i></button></td><td data-l="Position">M.S. Candidate</td><td data-l="Since">2025.03</td><td data-l="Email"><a href="mailto:njh@inha.edu">njh@inha.edu</a></td></tr><tr class="ph" id="ph2" hidden><td colspan="4"><img class="pt" src="images/members/jihwan-na.jpg" alt="나지환 (Jihwan Na)" loading="lazy"></td></tr><tr><td class="nm"><button type="button" class="who" aria-expanded="false" aria-controls="ph3"><b>송주현</b> <span>JooHyeon Song</span><i aria-hidden="true">+</i></button></td><td data-l="Position">M.S. Candidate</td><td data-l="Since">2025.03</td><td data-l="Email"><a href="mailto:benatto8317@inha.edu">benatto8317@inha.edu</a></td></tr><tr class="ph" id="ph3" hidden><td colspan="4"><img class="pt" src="images/members/joohyeon-song.jpg" alt="송주현 (JooHyeon Song)" loading="lazy"></td></tr><tr><td class="nm"><button type="button" class="who" aria-expanded="false" aria-controls="ph4"><b>이정화</b> <span>Jeonghwa Lee</span><i aria-hidden="true">+</i></button></td><td data-l="Position">M.S. Candidate</td><td data-l="Since">2025.03</td><td data-l="Email"><a href="mailto:ungwa@inha.edu">ungwa@inha.edu</a></td></tr><tr class="ph" id="ph4" hidden><td colspan="4"><img class="pt" src="images/members/jeonghwa-lee.jpg" alt="이정화 (Jeonghwa Lee)" loading="lazy"></td></tr><tr><td class="nm"><button type="button" class="who" aria-expanded="false" aria-controls="ph5"><b>김윤서</b> <span>Yunseo Kim</span><i aria-hidden="true">+</i></button></td><td data-l="Position">M.S. Candidate</td><td data-l="Since">2026.03</td><td data-l="Email"><a href="mailto:kyseo@inha.edu">kyseo@inha.edu</a></td></tr><tr class="ph" id="ph5" hidden><td colspan="4"><img class="pt" src="images/members/yunseo-kim.jpg" alt="김윤서 (Yunseo Kim)" loading="lazy"></td></tr><tr><td class="nm"><button type="button" class="who" aria-expanded="false" aria-controls="ph6"><b>이정후</b> <span>Jung Hoo Lee</span><i aria-hidden="true">+</i></button></td><td data-l="Position">M.S. Candidate</td><td data-l="Since">2026.03</td><td data-l="Email"><a href="mailto:dlwhdsud3232@inha.edu">dlwhdsud3232@inha.edu</a></td></tr><tr class="ph" id="ph6" hidden><td colspan="4"><img class="pt" src="images/members/junghoo-lee.jpg" alt="이정후 (Jung Hoo Lee)" loading="lazy"></td></tr><tr><td class="nm"><button type="button" class="who" aria-expanded="false" aria-controls="ph7"><b>임승욱</b> <span>Seung Ug Im</span><i aria-hidden="true">+</i></button></td><td data-l="Position">M.S. Candidate</td><td data-l="Since">2026.03</td><td data-l="Email"><a href="mailto:ukim0410@inha.edu">ukim0410@inha.edu</a></td></tr><tr class="ph" id="ph7" hidden><td colspan="4"><img class="pt" src="images/members/seungug-im.jpg" alt="임승욱 (Seung Ug Im)" loading="lazy"></td></tr></tbody></table>
+<h3 class="gt">Undergraduate Researchers</h3>
+<table class="roster ug"><thead><tr><th>Name</th><th>Position</th><th>M.S. Entry</th><th>Email</th></tr></thead><tbody><tr><td class="nm"><button type="button" class="who" aria-expanded="false" aria-controls="ug0"><b>정윤호</b> <span>Yunho Jeong</span><i aria-hidden="true">+</i></button></td><td data-l="Position">Undergraduate Researcher</td><td data-l="M.S. entry">2027.03</td><td data-l="Email"><a href="mailto:chmyun@inha.edu">chmyun@inha.edu</a></td></tr><tr class="ph" id="ug0" hidden><td colspan="4"><img class="pt" src="images/members/yunho-jeong.jpg" alt="정윤호 (Yunho Jeong)" loading="lazy"></td></tr><tr><td class="nm"><button type="button" class="who" aria-expanded="false" aria-controls="ug1"><b>변주원</b> <span>Juwon Byun</span><i aria-hidden="true">+</i></button></td><td data-l="Position">Undergraduate Researcher</td><td data-l="M.S. entry">2027.03</td><td data-l="Email"><a href="mailto:bjw9371@inha.edu">bjw9371@inha.edu</a></td></tr><tr class="ph" id="ug1" hidden><td colspan="4"><img class="pt" src="images/members/juwon-byun.jpg" alt="변주원 (Juwon Byun)" loading="lazy"></td></tr><tr><td class="nm"><button type="button" class="who" aria-expanded="false" aria-controls="ug2"><b>송영민</b> <span>Youngmin Song</span><i aria-hidden="true">+</i></button></td><td data-l="Position">Undergraduate Researcher</td><td data-l="M.S. entry">2027.09</td><td data-l="Email"><a href="mailto:ymym1043@inha.edu">ymym1043@inha.edu</a></td></tr><tr class="ph" id="ug2" hidden><td colspan="4"><img class="pt" src="images/members/youngmin-song.jpg" alt="송영민 (Youngmin Song)" loading="lazy"></td></tr></tbody></table>
+<h3 class="gt">Alumni</h3>
+<div class="alumni"><div class="alum"><div class="al-h"><button type="button" class="who" aria-expanded="false" aria-controls="al0"><b>한세원</b> <span>Sewon Han</span><i aria-hidden="true">+</i></button><span class="al-deg">M.S., 2026.08</span></div>
+<dl class="al-d" id="al0" hidden><dt>Thesis</dt><dd>Substituent-directed polymer chain interactions govern fluorescence mechanisms in non-conjugated polynorbornene derivatives</dd><dt>Current</dt><dd>OLAS.CO.,LTD.</dd></dl></div></div>
+  </div>
+</div></section>
+
+<section class="block" id="publications"><div class="wrap">
+  <div class="sec-head"><h2>Publications</h2></div>
+  <div class="sec-body">
+    <p class="note">* corresponding author; §, †, &amp; equal contribution</p>
+    <h3 class="gt">Independent Career at SPNL <span class="gt-sub">(2023–)</span></h3>
+    <div class="year"><h4>2026</h4><ol class="plist"><li class="pub"><span class="no">012</span><div><p class="t">Molecular Weight Dependent Fluorescence in Non-Conjugated Polynorbornene: Decoupling Single-Chain Entanglements and Aggregation Effects</p><p class="au"><b>Han, S.<sup>§</sup></b>; Shin, W.<sup>§</sup>; Lee, J.; <b>Hwang, G.</b>; <b>Byun, J.</b>; Lee, S.*; Kim, J.*; <b>Yang, S.*</b></p><p class="j"><i>Macromolecules</i> 2026, 59 (12), Just Accepted.</p></div></li><li class="pub"><span class="no">011</span><div><p class="t"><a href="https://pubs.acs.org/mamobx/article-abstract/59/12/6750/5166636/Quantitative-Defect-Engineering-Governs" target="_blank" rel="noopener">Quantitative Defect Engineering Governs Crystallization Pathways in Polymer Crystals</a></p><p class="au"><b>Hwang, G.<sup>§</sup></b>; Lee, J.<sup>§</sup>; <b>Ko, G.</b>; Lee, S.*; <b>Yang, S.*</b></p><p class="j"><i>Macromolecules</i> 2026, 59 (12), 6750–6758.</p></div></li><li class="pub"><span class="no">010</span><div><p class="t"><a href="https://onlinelibrary.wiley.com/doi/10.1002/sstr.202500664" target="_blank" rel="noopener">Control of Lattice Strain in α-FAPbI<sub>3</sub></a></p><p class="au">Hong, Y.-K.; <b>Hwang, G.</b>; Ju, S.-Y.; Cachafeiro, M.; Tress, W.; <b>Yang, S.*</b>; Kim, H.-S.*</p><p class="j"><i>Small Struct.</i> 2026, 7, e202500664.</p></div></li></ol></div>
+<div class="year"><h4>2025</h4><ol class="plist"><li class="pub"><span class="no">009</span><div><p class="t"><a href="https://pubs.acs.org/amlccd/article-abstract/14/4/391/3774397/Quantized-Fusion-Kinetics-in-Block-Copolymer" target="_blank" rel="noopener">Quantized Fusion Kinetics in Block Copolymer Micelles</a></p><p class="au">Sattari, A.; <b>Yang, S.</b>; Lodge, T.*</p><p class="j"><i>ACS Macro Lett.</i> 2025, 14 (4), 391–395.</p></div></li><li class="pub"><span class="no">008</span><div><p class="t"><a href="https://www.sciencedirect.com/science/article/abs/pii/S1385894724100642" target="_blank" rel="noopener">3D Printable Double-Network Ionogels with a Multi-Angle Zigzag Pattern for Enhanced Linearity and Sensitivity of Stretchable Ionic Sensors</a></p><p class="au">Kim, M. S.; Lee, C. Y.; Park, D. H.; Lee, J. E.; Cho, K. G.*; <b>Yang, S.*</b>; Lee, K. H.*</p><p class="j"><i>Chem. Eng. J.</i> 2025, 504, 158573.</p></div></li></ol></div>
+<div class="year"><h4>2024</h4><ol class="plist"><li class="pub"><span class="no">007</span><div><p class="t"><a href="https://pubs.acs.org/mamobx/article-abstract/57/17/8298/147106/Fragmentation-Kinetics-of-Block-Copolymer-Micelles" target="_blank" rel="noopener">Fragmentation Kinetics of Block Copolymer Micelles: Effect of Core and Corona Block Lengths</a></p><p class="au"><b>Yang, S.</b>; Sattari, A.; Han, D.; Lodge, T.*</p><p class="j"><i>Macromolecules</i> 2024, 57, 8298–8305.</p></div></li><li class="pub"><span class="no">006</span><div><p class="t"><a href="https://pubs.acs.org/jacsat/article-abstract/146/28/19369/158456/Independent-Control-of-the-Width-and-Length-of" target="_blank" rel="noopener">Independent Control of the Width and Length of Semiconducting 2D Nanorectangles via Accelerated Living Crystallization-Driven Self-Assembly</a></p><p class="au">Park, S.<sup>&amp;</sup>; Kang, S.-Y.<sup>&amp;</sup>; <b>Yang, S.*</b>; Choi, T.-L.*</p><p class="j"><i>J. Am. Chem. Soc.</i> 2024, 146 (28), 19369–19376.</p></div></li><li class="pub"><span class="no">005</span><div><p class="t"><a href="https://link.springer.com/article/10.1007/s11244-024-01988-8" target="_blank" rel="noopener">Hybrid Materials Containing Co Species Dispersed on Carbonized Frameworks and Their Electrocatalytic Properties for O<sub>2</sub> Reduction</a></p><p class="au">Lee, J.; Shin, E. Y.; Jeon, S.; <b>Yang, S.*</b>; Park, S.*</p><p class="j"><i>Top. Catal.</i> 2024, 67, 1077–1084.</p></div></li><li class="pub"><span class="no">004</span><div><p class="t"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0010854524003047" target="_blank" rel="noopener">Greenhouse Sulfur Hexafluoride Gas Capture and Separation by Emerging Porous Solids</a></p><p class="au">Jo, E.<sup>†</sup>; <b>Yang, S.<sup>†</sup></b>; Kim, D. W.*; Kang, D. W.*</p><p class="j"><i>Coord. Chem. Rev.</i> 2024, 515, 215958.</p></div></li><li class="pub"><span class="no">003</span><div><p class="t"><a href="https://pubs.acs.org/aapmcd/article-abstract/6/11/6689/356318/Regulating-Cationic-Polymerization-of-Difunctional" target="_blank" rel="noopener">Regulating Cationic Polymerization of Difunctional Epoxy Resin through Structural Variations of the Thermal Initiator</a></p><p class="au">Kim, J.<sup>§</sup>; Kim, S.<sup>§</sup>; Choi, S. K.; <b>Yang, S.*</b>; Kim, M.*</p><p class="j"><i>ACS Appl. Polym. Mater.</i> 2024, 6, 6689–6696.</p></div></li><li class="pub"><span class="no">002</span><div><p class="t"><a href="https://onlinelibrary.wiley.com/doi/10.1002/bkcs.12851" target="_blank" rel="noopener">Effect of UV-Ozone Treatment for KCl Interlayer in Perovskite Solar Cells</a></p><p class="au">Jo, N.-Y.; Hong, Y.-K.; <b>Yang, S.*</b>; Kim, H.-S.*</p><p class="j"><i>Bull. Korean Chem. Soc.</i> 2024, 1–6.</p></div></li></ol></div>
+<div class="year"><h4>2023</h4><ol class="plist"><li class="pub"><span class="no">001</span><div><p class="t"><a href="https://pubs.acs.org/jacsat/article-abstract/145/16/9029/321237/Size-Tunable-Semiconducting-2D-Nanorectangles-from" target="_blank" rel="noopener">Size-Tunable Semiconducting 2D Nanorectangles from Conjugated Polyenyne Homopolymer Synthesized via Cascade Metathesis and Metallotropy Polymerization</a></p><p class="au">Yun, N.; Kang, C.; <b>Yang, S.</b>; Hwang, S.-H.; Park, J.-M.; Choi, T.-L.*</p><p class="j"><i>J. Am. Chem. Soc.</i> 2023, 145 (16), 9029–9038.</p></div></li></ol></div>
+    <h3 class="gt before"><button type="button" class="who" aria-expanded="false" aria-controls="prior"><b>Ph.D. &amp; Postdoctoral Research</b> <span>(2016–2022, 15 papers)</span><i aria-hidden="true">+</i></button></h3>
+    <div id="prior" hidden><div class="year"><h4>2022</h4><ol class="plist"><li class="pub"><span class="no">015</span><div><p class="t"><a href="https://pubs.acs.org/doi/full/10.1021/acspolymersau.2c00033" target="_blank" rel="noopener">Dynamics and Equilibration Mechanisms in Block Copolymer Particles</a></p><p class="au">Lodge, T.*; Seitzinger, C.; Seeger, S.; <b>Yang, S.</b>; Gupta, S.; Dorfman, K.</p><p class="j"><i>ACS Polym. Au</i> 2022, 2 (6), 397–416.</p></div></li><li class="pub"><span class="no">014</span><div><p class="t"><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/adma.202202353" target="_blank" rel="noopener">Conformation Dynamics of Single Polymer Strands in Solution</a></p><p class="au">Bae, Y.<sup>†</sup>; Ha, M. Y.<sup>†</sup>; Bang, K.-T.<sup>†</sup>; <b>Yang, S.</b>; Kang, S. Y.; Kim, J.; Sung, J.; Kang, S.; Kang, D.; Lee, W. B.*; Choi, T.-L.*; Park, J.*</p><p class="j"><i>Adv. Mater.</i> 2022, 34, 2202353.</p></div></li><li class="pub"><span class="no">013</span><div><p class="t"><a href="https://pubs.acs.org/doi/10.1021/acs.macromol.2c00400" target="_blank" rel="noopener">Fabrication of Semiconducting Nanoribbons with Tunable Length and Width via Crystallization-Driven Self-Assembly of a Homopolymer Prepared by Cyclopolymerization Using Grubbs Catalyst</a></p><p class="au">Choi, I.; Kang, S.-Y.; <b>Yang, S.</b>; Yun, N.; Choi, T.-L.*</p><p class="j"><i>Macromolecules</i> 2022, 55 (9), 3484–3492.</p></div></li><li class="pub"><span class="no">012</span><div><p class="t"><a href="https://pubs.acs.org/doi/10.1021/jacs.1c13385" target="_blank" rel="noopener">Synchronous Preparation of Length-Controllable 1D Nanoparticles via Crystallization-Driven in Situ Nanoparticlization of Conjugated Polymers</a></p><p class="au">Hwang, S.-H.<sup>†</sup>; Kang, S.-Y.<sup>†</sup>; <b>Yang, S.</b>; Lee, J.; Choi, T.-L.*</p><p class="j"><i>J. Am. Chem. Soc.</i> 2022, 144 (13), 5921–5929.</p></div></li></ol></div>
+<div class="year"><h4>2021</h4><ol class="plist"><li class="pub"><span class="no">011</span><div><p class="t"><a href="https://www.nature.com/articles/s41467-021-22879-6" target="_blank" rel="noopener">Semi-conducting 2D Rectangles with Tunable Length via Uniaxial Living Crystallization-Driven Self-Assembly of Homopolymer</a></p><p class="au"><b>Yang, S.</b>; Kang, S.-Y.; Choi, T.-L.*</p><p class="j"><i>Nat. Commun.</i> 2021, 12, 2602.</p></div></li><li class="pub"><span class="no">010</span><div><p class="t"><a href="https://pubs.acs.org/doi/full/10.1021/acs.macromol.1c00334" target="_blank" rel="noopener">The Influence of Grafting Density on Ultrasound-Induced Backbone and Arm Scission of Brush Copolymers</a></p><p class="au">Peterson, G. I.; Noh, J.; Ha, M. Y.; <b>Yang, S.</b>; Lee, W. B.*; Choi, T.-L.*</p><p class="j"><i>Macromolecules</i> 2021, 54, 4219–4226.</p></div></li><li class="pub"><span class="no">009</span><div><p class="t"><a href="https://pubs.rsc.org/en/Content/ArticleLanding/2020/PY/D0PY01389G" target="_blank" rel="noopener">Direct Formation of Nano-Objects via In Situ Self-Assembly of Conjugated Polymers</a></p><p class="au">Peterson, G. I.; <b>Yang, S.</b>; Choi, T.-L.*</p><p class="j"><i>Polym. Chem.</i> 2021, 12, 1393–1403.</p></div></li></ol></div>
+<div class="year"><h4>2020</h4><ol class="plist"><li class="pub"><span class="no">008</span><div><p class="t"><a href="https://pubs.rsc.org/en/content/articlelanding/2020/sc/d0sc02891f" target="_blank" rel="noopener">Rapid Formation and Real-Time Observation of 1D Nanofibers with Tunable Lengths and Widths by Living Crystallization-Driven Self-Assembly</a></p><p class="au"><b>Yang, S.</b>; Choi, T.-L.*</p><p class="j"><i>Chem. Sci.</i> 2020, 11, 8416–8424.</p><p class="pn">Selected as a Chem Sci Pick; 2020 Chemical Science HOT Article Collection</p></div></li></ol></div>
+<div class="year"><h4>2019</h4><ol class="plist"><li class="pub"><span class="no">007</span><div><p class="t"><a href="https://pubs.acs.org/doi/full/10.1021/jacs.9b10904" target="_blank" rel="noopener">Morphologically Tunable Square and Rectangular Nanosheets of a Simple Conjugated Homopolymer by Changing Solvents</a></p><p class="au"><b>Yang, S.</b>; Kang, S.-Y.; Choi, T.-L.*</p><p class="j"><i>J. Am. Chem. Soc.</i> 2019, 141 (48), 19138–19143.</p></div></li><li class="pub"><span class="no">006</span><div><p class="t"><a href="https://pubs.acs.org/doi/full/10.1021/acs.macromol.9b00457" target="_blank" rel="noopener">Conformation of Tunable Nanocylinders: Up to Sixth-Generation Dendronized Polymers via Graft-Through Approach by ROMP</a></p><p class="au">Dutertre, F.; Bang, K.-T.; Vereroudakis, E.; Loppinet, B.; <b>Yang, S.</b>; Kang, S.-Y.; Fytas, G.; Choi, T.-L.*</p><p class="j"><i>Macromolecules</i> 2019, 52, 3342–3350.</p></div></li><li class="pub"><span class="no">005</span><div><p class="t"><a href="https://pubs.acs.org/doi/full/10.1021/acs.accounts.8b00594" target="_blank" rel="noopener">Synthesis of Functional Polyacetylenes via Cyclopolymerization of Diyne Monomers with Grubbs-type Catalysts</a></p><p class="au">Peterson, G. I.; <b>Yang, S.</b>; Choi, T.-L.*</p><p class="j"><i>Acc. Chem. Res.</i> 2019, 52 (4), 994–1005.</p></div></li></ol></div>
+<div class="year"><h4>2017</h4><ol class="plist"><li class="pub"><span class="no">004</span><div><p class="t"><a href="https://pubs.acs.org/doi/abs/10.1021/jacs.6b12378" target="_blank" rel="noopener">Direct Formation of Large-Area 2D Nanosheets from Fluorescent Semiconducting Homopolymer with Orthorhombic Crystalline Orientation</a></p><p class="au"><b>Yang, S.</b>; Shin, S.; Choi, I.; Lee, J.; Choi, T.-L.*</p><p class="j"><i>J. Am. Chem. Soc.</i> 2017, 139 (8), 3082–3088.</p></div></li><li class="pub"><span class="no">003</span><div><p class="t"><a href="https://onlinelibrary.wiley.com/doi/10.1002/pola.28598" target="_blank" rel="noopener">Spontaneous Evolution of Nanostructures by Light-Driven Growth of Micelles Obtained from In Situ Nanoparticlization of Conjugated Polymers</a></p><p class="au">Kang, E.-H.; <b>Yang, S.</b>; Yu, S. Y.; Kim, J.; Choi, T.-L.*</p><p class="j"><i>J. Polym. Sci. Part A: Polym. Chem.</i> 2017, 55, 3058–3066.</p></div></li></ol></div>
+<div class="year"><h4>2016</h4><ol class="plist"><li class="pub"><span class="no">002</span><div><p class="t"><a href="https://pubs.acs.org/doi/10.1021/acs.macromol.6b01110" target="_blank" rel="noopener">Mechanistic Investigations on the Competition between the Cyclopolymerization and [2+2+2] Cycloaddition of 1,6-Heptadiyne Derivatives Using Second-Generation Grubbs Catalysts</a></p><p class="au">Kang, E.-H.; Kang, C.; <b>Yang, S.</b>; Oks, E.; Choi, T.-L.*</p><p class="j"><i>Macromolecules</i> 2016, 49, 6240–6250.</p></div></li><li class="pub"><span class="no">001</span><div><p class="t"><a href="https://pubs.rsc.org/en/content/articlelanding/2016/CC/C5CC08490C" target="_blank" rel="noopener">One-Pot Synthesis of Polysulfane-Bearing Block Copolymer Nanoparticles with Tunable Size and Refractive Index</a></p><p class="au">Lim, J.; Cho, Y.; Kang, E.-H.; <b>Yang, S.</b>; Pyun, J.; Choi, T.-L.*; Char, K.*</p><p class="j"><i>Chem. Commun.</i> 2016, 52, 2485–2488.</p></div></li></ol></div></div>
+  </div>
+</div></section>
+
+<section class="block alt" id="news"><div class="wrap">
+  <div class="sec-head"><h2>News</h2></div>
+  <div class="sec-body">
+    <ul class="news" id="newsList">
+<li><time datetime="2026-09-29">2026.09.29</time><div><p><b>황규성</b>(석박통합 5차) 학생이 2026 IUPAC-PSK50 학회에서 연구 포스터 발표를 수행하고, 최우수 발표상을 수상하였습니다. 축하합니다~</p><button type="button" class="shot-toggle" aria-expanded="false" aria-controls="ns0">사진 보기 (2)<i aria-hidden="true">+</i></button><div class="shots" id="ns0" hidden><button type="button"><img src="images/news/2026-iupac-psk-hwang-1.jpg" alt="황규성 학생의 최우수 포스터" loading="lazy"></button><button type="button"><img src="images/news/2026-iupac-psk-hwang-2.jpg" alt="포스터 앞의 황규성 학생" loading="lazy"></button></div></div></li>
+<li><time datetime="2026-09-24">2026.09.24</time><div><p><b>한세원</b>(26.08 석사졸업)과 <b>황규성</b>(석박통합 5차), <b>변주원</b>(학부연구생)의 “Molecular Weight Dependent Fluorescence in Non-Conjugated Polynorbornene: Decoupling Single-Chain Entanglements and Aggregation Effects” 논문이 <i>Macromolecules</i>에 게재되었습니다. 축하합니다~</p></div></li>
+<li><time datetime="2026-06-03">2026.06.03</time><div><p><b>황규성</b>(석사 4차)와 <b>고건우</b>(석사 3차) 학생의 “Quantitative Defect Engineering Governs Crystallization Pathways in Polymer Crystals” 논문이 <i>Macromolecules</i>에 게재되었습니다. 축하합니다~</p></div></li>
+<li><time datetime="2026-04-16">2026.04.16</time><div><p><b>이정화</b>(석사 3차), <b>송주현</b>(석사 3차), <b>고건우</b>(석사 3차) 학생이 2026 춘계 대한화학회에서 처음으로 연구 포스터 발표를 수행했습니다. 수고했습니다~</p><button type="button" class="shot-toggle" aria-expanded="false" aria-controls="ns3">사진 보기 (3)<i aria-hidden="true">+</i></button><div class="shots" id="ns3" hidden><button type="button"><img src="images/news/2026-kcs-spring-lee-jeonghwa.jpg" alt="포스터 발표 중인 이정화 학생" loading="lazy"></button><button type="button"><img src="images/news/2026-kcs-spring-song.jpg" alt="포스터 발표 중인 송주현 학생" loading="lazy"></button><button type="button"><img src="images/news/2026-kcs-spring-ko.jpg" alt="포스터 발표 중인 고건우 학생" loading="lazy"></button></div></div></li>
+<li><time datetime="2026-04-10">2026.04.10</time><div><p><b>한세원</b>(석사 4차) 학생이 2026 춘계 고분자학회에서 처음으로 연구 포스터 발표를 수행했습니다. 수고했습니다~</p><button type="button" class="shot-toggle" aria-expanded="false" aria-controls="ns4">사진 보기 (1)<i aria-hidden="true">+</i></button><div class="shots" id="ns4" hidden><button type="button"><img src="images/news/2026-psk-spring-han.jpg" alt="한세원 학생의 포스터" loading="lazy"></button></div></div></li>
+<li><time datetime="2025-12-05">2025.12.05</time><div><p>우리 연구실이 과학기술정보통신부 선정 <b>제2025-3회 안전관리 우수연구실</b>로 선정되었습니다~ 모두들 고생 많았습니다~</p><button type="button" class="shot-toggle" aria-expanded="false" aria-controls="ns5">사진 보기 (1)<i aria-hidden="true">+</i></button><div class="shots" id="ns5" hidden><button type="button"><img src="images/news/2025-safety-lab-award.jpg" alt="안전관리 우수연구실 인증패 수여식" loading="lazy"></button></div></div></li>
+<li class="older"><time datetime="2025-12-02">2025.12.02</time><div><p><b>이정후</b>, <b>임승욱</b> 학부연구생이 인하대학교 자연과학대학 화학과에서 주최한 ‘졸업 논문 포스터 발표회’에서 포스터 발표를 수행했습니다. <b>임승욱</b> 학생은 ‘우수상’을 받았습니다. 축하합니다 ♥</p><button type="button" class="shot-toggle" aria-expanded="false" aria-controls="ns6">사진 보기 (2)<i aria-hidden="true">+</i></button><div class="shots" id="ns6" hidden><button type="button"><img src="images/news/2025-ug-poster-lim.jpg" alt="포스터 발표 중인 임승욱 학생" loading="lazy"></button><button type="button"><img src="images/news/2025-ug-poster-lee-junghoo.jpg" alt="포스터 발표 중인 이정후 학생" loading="lazy"></button></div></div></li>
+<li class="older"><time datetime="2025-10-23">2025.10.23</time><div><p><b>황규성</b>(석사 3차), <b>나지환</b>(석사 2차) 학생이 2025 추계 대한화학회에서 처음으로 연구 포스터 발표를 수행했습니다. 수고했습니다~</p><button type="button" class="shot-toggle" aria-expanded="false" aria-controls="ns7">사진 보기 (2)<i aria-hidden="true">+</i></button><div class="shots" id="ns7" hidden><button type="button"><img src="images/news/2025-kcs-fall-na.jpg" alt="포스터 발표 중인 나지환 학생" loading="lazy"></button><button type="button"><img src="images/news/2025-kcs-fall-hwang.jpg" alt="포스터 발표 중인 황규성 학생" loading="lazy"></button></div></div></li>
+<li class="older"><time datetime="2025-06-05">2025.06.05</time><div><p><b>김윤서</b> 학부연구생이 인하대학교 자연과학대학 화학과에서 주최한 ‘졸업 논문 포스터 발표회’에서 포스터 발표를 수행했습니다. <b>김윤서</b> 학생은 ‘우수상’을 받았습니다. 축하합니다 ♥</p><button type="button" class="shot-toggle" aria-expanded="false" aria-controls="ns8">사진 보기 (1)<i aria-hidden="true">+</i></button><div class="shots" id="ns8" hidden><button type="button"><img src="images/news/2025-ug-poster-kim.jpg" alt="포스터 발표 중인 김윤서 학생" loading="lazy"></button></div></div></li>
+<li class="older"><time datetime="2024-11-29">2024.11.29</time><div><p><b>나지환</b>, <b>송주현</b>, <b>이정화</b> 학부연구생이 인하대학교 자연과학대학 화학과에서 주최한 ‘졸업 논문 포스터 발표회’에서 포스터 발표를 수행했습니다. <b>나지환</b> 학생은 ‘우수상’을 받았습니다. 축하합니다 ♥</p><button type="button" class="shot-toggle" aria-expanded="false" aria-controls="ns9">사진 보기 (1)<i aria-hidden="true">+</i></button><div class="shots" id="ns9" hidden><button type="button"><img src="images/news/2024-ug-poster-na.jpg" alt="포스터 발표 중인 나지환 학생" loading="lazy"></button></div></div></li>
+<li class="older"><time datetime="2024-07-01">2024.07.01</time><div><p>SPNL 실험실에서 첫 하계학부연구생 프로그램을 시작합니다.</p></div></li>
+<li class="older"><time datetime="2024-06-07">2024.06.07</time><div><p><b>한세원</b> 학부연구생이 인하대학교 자연과학대학 화학과에서 주최한 ‘졸업 논문 포스터 발표회’에서 포스터 발표를 수행했습니다. <b>한세원</b> 학생은 ‘최우수상’을 받았습니다. 축하합니다 ♥</p><button type="button" class="shot-toggle" aria-expanded="false" aria-controls="ns11">사진 보기 (1)<i aria-hidden="true">+</i></button><div class="shots" id="ns11" hidden><button type="button"><img src="images/news/2024-ug-poster-han.jpg" alt="포스터 발표 중인 한세원 학생" loading="lazy"></button></div></div></li>
+<li class="older"><time datetime="2024-01-02">2024.01.02</time><div><p>SPNL 실험실에서 첫 동계학부연구생 프로그램을 시작합니다.</p></div></li>
+<li class="older"><time datetime="2023-11-03">2023.11.03</time><div><p>SPNL 실험실의 후드 및 실험대 공사와 학생 오피스의 가구 설치가 완료되었습니다.</p></div></li>
+<li class="older"><time datetime="2023-09-12">2023.09.12</time><div><p>SPNL 보금자리가 인하대학교 5호관 5E410D로 정해졌습니다.</p></div></li>
+    </ul>
+    <button class="more" id="moreBtn" type="button" aria-controls="newsList" aria-expanded="false">이전 소식 더 보기</button>
+  </div>
+</div></section>
+
+<section class="block" id="gallery"><div class="wrap">
+  <div class="sec-head"><h2>Gallery</h2></div>
+  <div class="sec-body"><div class="gallery"><figure><button type="button"><img src="images/gallery/2026-iupac-psk50-t.jpg" data-full="images/gallery/2026-iupac-psk50.jpg" alt="IUPAC-PSK50 (부산 BEXCO)" loading="lazy"></button><figcaption><time>2026.09</time>IUPAC-PSK50 (부산 BEXCO)</figcaption></figure><figure><button type="button"><img src="images/gallery/2026-ms-grad-han-t.jpg" data-full="images/gallery/2026-ms-grad-han.jpg" alt="한세원 석사 졸업" loading="lazy"></button><figcaption><time>2026.08</time>한세원 석사 졸업</figcaption></figure><figure><button type="button"><img src="images/gallery/2026-kcs-jeju-t.jpg" data-full="images/gallery/2026-kcs-jeju.jpg" alt="제137회 대한화학회 총회 및 학술발표회 (제주 ICC)" loading="lazy"></button><figcaption><time>2026.04</time>제137회 대한화학회 총회 및 학술발표회 (제주 ICC)</figcaption></figure><figure><button type="button"><img src="images/gallery/2026-bs-grad-t.jpg" data-full="images/gallery/2026-bs-grad.jpg" alt="임승욱·이정후·김윤서 학사 졸업" loading="lazy"></button><figcaption><time>2026.02</time>임승욱·이정후·김윤서 학사 졸업</figcaption></figure><figure><button type="button"><img src="images/gallery/2025-kcs-changwon-t.jpg" data-full="images/gallery/2025-kcs-changwon.jpg" alt="제136회 대한화학회 총회 및 학술발표회 (창원 CECO)" loading="lazy"></button><figcaption><time>2025.10</time>제136회 대한화학회 총회 및 학술발표회 (창원 CECO)</figcaption></figure><figure><button type="button"><img src="images/gallery/2025-kcs-yongpyong-t.jpg" data-full="images/gallery/2025-kcs-yongpyong.jpg" alt="대한화학회 고분자분과 하계심포지엄 (용평)" loading="lazy"></button><figcaption><time>2025.07</time>대한화학회 고분자분과 하계심포지엄 (용평)</figcaption></figure><figure><button type="button"><img src="images/gallery/2025-mt-t.jpg" data-full="images/gallery/2025-mt.jpg" alt="학생 MT" loading="lazy"></button><figcaption><time>2025.05</time>학생 MT</figcaption></figure><figure><button type="button"><img src="images/gallery/2025-bs-grad-t.jpg" data-full="images/gallery/2025-bs-grad.jpg" alt="송주현·나지환·이정화 학사 졸업" loading="lazy"></button><figcaption><time>2025.02</time>송주현·나지환·이정화 학사 졸업</figcaption></figure><figure><button type="button"><img src="images/gallery/2024-psk-busan-t.jpg" data-full="images/gallery/2024-psk-busan.jpg" alt="한국고분자학회 추계 정기총회 및 학술대회 (부산 BEXCO)" loading="lazy"></button><figcaption><time>2024.10</time>한국고분자학회 추계 정기총회 및 학술대회 (부산 BEXCO)</figcaption></figure><figure><button type="button"><img src="images/gallery/2024-bs-grad-han-t.jpg" data-full="images/gallery/2024-bs-grad-han.jpg" alt="한세원 학사 졸업" loading="lazy"></button><figcaption><time>2024.08</time>한세원 학사 졸업</figcaption></figure></div></div>
+</div></section>
+
+<section class="block alt" id="contact"><div class="wrap">
+  <div class="sec-head"><h2>Contact</h2></div>
+  <div class="sec-body contact">
+    <div>
+      <p class="addr">Department of Chemistry, Inha University<br>100 Inha-ro, Michuhol-gu, Incheon 22212, Republic of Korea</p>
+      <p class="addr-ko">인천광역시 미추홀구 인하로 100, 인하대학교 화학과</p>
+    </div>
+    <dl class="facts">
+      <dt>Lab</dt><dd>5E410D</dd>
+      <dt>Office</dt><dd>5N406</dd>
+      <dt>Phone</dt><dd><a href="tel:+82328607682">+82-32-860-7682</a></dd>
+      <dt>Email</dt><dd><a href="mailto:shyang@inha.ac.kr">shyang@inha.ac.kr</a></dd>
+    </dl>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <span>© 2026 Synthetic Polymer Nanomaterials Laboratory, Inha University</span>
+  <a href="#home">맨 위로</a>
+</div></footer>
+<dialog class="lb" id="lb"><button type="button" id="lbClose">닫기</button><img id="lbImg" alt=""></dialog>
+<script>(function(){
+var svg=document.getElementById('chains');
+if(svg){
+ var NS='http://www.w3.org/2000/svg',beadsG=document.getElementById('beads'),linksG=document.getElementById('links');
+ var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function beadsOn(id,step,ev){var p=document.getElementById(id),L=p.getTotalLength(),pts=[];
+  for(var s=6;s<L-4;s+=step)pts.push(p.getPointAtLength(s));
+  pts.forEach(function(pt,i){var f=ev&&(i%ev===2);
+   if(f){var g=document.createElementNS(NS,'circle');g.setAttribute('cx',pt.x);g.setAttribute('cy',pt.y);g.setAttribute('r',9);g.setAttribute('class','glow');g.setAttribute('filter','url(#blur)');beadsG.appendChild(g);}
+   var c=document.createElementNS(NS,'circle');c.setAttribute('cx',pt.x);c.setAttribute('cy',pt.y);c.setAttribute('r',f?5.5:4.5);c.setAttribute('class','bead'+(f?' f':''));beadsG.appendChild(c);});
+  return pts;}
+ try{var a=beadsOn('pA',24,5),b=beadsOn('pB',24,5);beadsOn('pC',22,6);
+  for(var i=1;i<Math.min(a.length,b.length);i+=2){var l=document.createElementNS(NS,'line');l.setAttribute('x1',a[i].x);l.setAttribute('y1',a[i].y);l.setAttribute('x2',b[i].x);l.setAttribute('y2',b[i].y);l.setAttribute('class','link');linksG.appendChild(l);}
+  if(!reduce&&svg.animate){['pA','pB','pC'].forEach(function(id,k){var p=document.getElementById(id),L=p.getTotalLength();p.style.strokeDasharray=L;p.animate([{strokeDashoffset:L},{strokeDashoffset:0}],{duration:1400,delay:k*180,easing:'cubic-bezier(.5,0,.2,1)',fill:'both'});});
+   [beadsG,linksG].forEach(function(g,k){g.animate([{opacity:0},{opacity:1}],{duration:700,delay:1300+k*250,fill:'both'});});}
+ }catch(e){}
+}
+var links=[].slice.call(document.querySelectorAll('.nav ul a'));
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id);});}});},{rootMargin:'-45% 0px -50% 0px'});
+ document.querySelectorAll('main section[id]').forEach(function(s){io.observe(s);});}
+document.querySelectorAll('.who,.shot-toggle').forEach(function(b){b.addEventListener('click',function(){var r=document.getElementById(b.getAttribute('aria-controls'));var o=r.hidden;r.hidden=!o;b.setAttribute('aria-expanded',o);});});
+var list=document.getElementById('newsList'),btn=document.getElementById('moreBtn');
+if(!list.querySelector('.older'))btn.hidden=true;
+btn.addEventListener('click',function(){var o=list.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.textContent=o?'최근 소식만 보기':'이전 소식 더 보기';});
+var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
+document.querySelectorAll('.shots button,.gallery button').forEach(function(b){b.addEventListener('click',function(){var im=b.querySelector('img'),src=im.getAttribute('data-full')||im.src;if(!lb.showModal){window.open(src,'_blank');return;}lbImg.src=src;lbImg.alt=im.alt;lb.showModal();});});
+document.getElementById('lbClose').addEventListener('click',function(){lb.close();});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.close();});
+})();</script>
+</body>
+</html>
